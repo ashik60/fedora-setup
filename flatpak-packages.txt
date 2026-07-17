@@ -1,0 +1,6 @@
+com.brave.Browser
+com.bitwarden.desktop
+org.onlyoffice.desktopeditors
+com.github.wwmm.easyeffects
+com.github.tchx84.Flatseal
+com.mattjakeman.ExtensionManager
