@@ -1,7 +1,18 @@
 #!/usr/bin/env bash
 
-sudo dnf autoremove -y
+set -euo pipefail
 
-sudo dnf clean all
+if command -v dnf >/dev/null 2>&1; then
+    echo "Cleaning DNF packages..."
+    sudo dnf autoremove -y
+    sudo dnf clean all
+elif command -v apt-get >/dev/null 2>&1; then
+    echo "Cleaning APT packages..."
+    sudo apt-get autoremove -y
+    sudo apt-get clean
+fi
 
-flatpak uninstall --unused -y
+if command -v flatpak >/dev/null 2>&1; then
+    echo "Cleaning unused Flatpaks..."
+    flatpak uninstall --unused -y
+fi
